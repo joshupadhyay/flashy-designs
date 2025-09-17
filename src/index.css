@@ -21,26 +21,31 @@ body {
   width: 30%;
   background-color: rgba(255, 255, 255, 5%);
   position: absolute;
-  transition: left, top, height, border-radius;
-  transition-duration: 1000ms;
-  transition-timing-function: ease-in-out;
+  transition: left, top, height, width, border-radius, transform;
+  transition-duration: 1200ms;
+  transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 #wrapper > .shape:nth-child(1) {
   background-color: rgba(255, 192, 186);
+  transition-delay: 0ms;
 }
 
 #wrapper > .shape:nth-child(2) {
   background-color: rgba(255, 177, 38);
+  transition-delay: 50ms;
 }
 #wrapper > .shape:nth-child(3) {
   background-color: rgba(228, 147, 227);
+  transition-delay: 100ms;
 }
 #wrapper > .shape:nth-child(4) {
   background-color: rgba(100, 172, 195);
+  transition-delay: 150ms;
 }
 #wrapper > .shape:nth-child(5) {
   background-color: rgba(155, 220, 125);
+  transition-delay: 200ms;
 }
 
 /* make perfect circles for small “dot” layouts if you want */
@@ -222,8 +227,8 @@ body {
   border-bottom-left-radius: 0rem;
   border-bottom-right-radius: 0rem;
 }
-
+/* 
 #wrapper[data-roundness="2"] > .shape {
   border-radius: 50%;
   width: ;
-}
+} */
