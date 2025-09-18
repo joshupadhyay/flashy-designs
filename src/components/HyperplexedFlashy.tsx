@@ -20,7 +20,7 @@ export function HyperPlexed() {
     return possiblePhases;
   }, []);
 
-  // configuration is a number, the index of the list of possible configurations
+  // State management
   const [config, setConfig] = useState<number>(0);
 
   useEffect(() => {
@@ -41,11 +41,9 @@ export function HyperPlexed() {
       data-roundness={possiblePhases[config]?.roundness}
       data-configuration={possiblePhases[config]?.config}
     >
-      <div className="shape"></div>
-      <div className="shape"></div>
-      <div className="shape"></div>
-      <div className="shape"></div>
-      <div className="shape"></div>
+      {[1, 2, 3, 4, 5].map((index) => (
+        <div key={index} className={`shape shape-${index}`} />
+      ))}
     </div>
   );
 }
