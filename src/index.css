@@ -25,9 +25,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: default;
+  cursor: pointer;
   overflow: hidden;
   z-index: 1;
+}
+
+/* Hover highlighting effects */
+#wrapper > .shape:hover,
+#wrapper > .shape[data-hovered="true"] {
+  outline: 2px solid rgba(244, 242, 242, 0.916);
+  outline-offset: 4px;
+  transform: scale(1.02);
+  transition-duration: 200ms;
+  z-index: 10;
 }
 
 

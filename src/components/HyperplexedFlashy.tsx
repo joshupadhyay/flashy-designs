@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
+// thank you https://www.youtube.com/watch?v=dhfQnmGXSwU&list=PLD9xos4mnoHSIDnJjGmhRrxRmHGS8nF91&index=2
+// the most calming effect I've ever seen
 export function HyperPlexed() {
   // sequential phases for smooth transitions
   const possiblePhases = useMemo(() => {
@@ -22,8 +24,12 @@ export function HyperPlexed() {
 
   // State management
   const [config, setConfig] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+  const [hoveredShape, setHoveredShape] = useState<number | null>(null);
 
   useEffect(() => {
+    if (isPaused) return;
+
     const interval = setInterval(() => {
       setConfig((prevConfig) => {
         // cycle through phases sequentially for smooth transitions
@@ -33,7 +39,24 @@ export function HyperPlexed() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [possiblePhases.length]);
+  }, [possiblePhases.length, isPaused]);
+
+  // Hover handlers
+  const handleShapeHover = (shapeIndex: number) => {
+    setHoveredShape(shapeIndex);
+    setIsPaused(true);
+  };
+
+  const handleShapeLeave = () => {
+    setHoveredShape(null);
+    // Small delay before resuming animation for better UX
+    setTimeout(() => setIsPaused(false), 300);
+  };
+
+  // Click handler for navigation
+  const handleShapeClick = () => {
+    window.location.href = '/about';
+  };
 
   return (
     <div
@@ -42,7 +65,14 @@ export function HyperPlexed() {
       data-configuration={possiblePhases[config]?.config}
     >
       {[1, 2, 3, 4, 5].map((index) => (
-        <div key={index} className={`shape shape-${index}`} />
+        <div
+          key={index}
+          className={`shape shape-${index}`}
+          onMouseEnter={() => handleShapeHover(index - 1)}
+          onMouseLeave={handleShapeLeave}
+          onClick={handleShapeClick}
+          data-hovered={hoveredShape === index - 1}
+        />
       ))}
     </div>
   );

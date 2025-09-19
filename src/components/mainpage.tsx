@@ -1,9 +1,8 @@
-import { LinkButtons, NiceLink } from "./LinkButton";
+import { NiceLink } from "./LinkButton";
 import { HyperPlexed } from "./HyperplexedFlashy";
 import { Button } from "@/components/ui/button";
 
 export function MainPage() {
-  // Simple large text, to sit above the Hyperplexed shapes
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4">
       <div className="text-center mb-8 z-10">
