@@ -130,9 +130,9 @@ const result = await Bun.build({
   target: "browser",
   sourcemap: "linked",
   naming: {
-    // Force unique naming with hash to prevent conflicts
+    // Force unique naming with hash to prevent conflicts for chunks and assets
     chunk: "chunks/[name]-[hash].[ext]",
-    entry: "[name]-[hash].[ext]",
+    entry: "[name].[ext]", // Remove hash from HTML files for Vercel
     asset: "assets/[name]-[hash].[ext]"
   },
   define: {
