@@ -1,8 +1,11 @@
 import Markdown from "react-markdown";
+import { useNavigate } from "react-router-dom";
 
 export function About() {
+  const navigate = useNavigate();
+
   const handleHomeClick = () => {
-    window.location.href = "/";
+    navigate("/");
   };
 
   return (
@@ -18,10 +21,14 @@ export function About() {
           <Markdown
             components={{
               h3: ({ children }) => (
-                <h3 className="text-2xl font-bold mt-8 mb-4 text-white">{children}</h3>
+                <h3 className="text-2xl font-bold mt-8 mb-4 text-white">
+                  {children}
+                </h3>
               ),
               p: ({ children }) => (
-                <p className="text-lg mb-6 opacity-90 leading-relaxed">{children}</p>
+                <p className="text-med mb-6 opacity-90 leading-relaxed">
+                  {children}
+                </p>
               ),
               a: ({ href, children }) => (
                 <a
@@ -56,19 +63,25 @@ export function About() {
   );
 }
 
-const markdwn = `I've lived in NYC for 3 years, and grew up in Bangkok, Thailand. Working remote was fun, but I find myself missing an office, a charged work environment. I'm looking for roles largely in person, or hybrid with talented people that push me to grow.
+const markdwn = `
+
+I grew up in Bangkok, Thailandm and now call NYC my home. I enjoy software and working from home, but I find myself missing an office and a charged work environment. 
+
+I'm drawn to software as a tool of enormous leverage, and as a way to realize insane ideas. I got my start making a celebrity lookalike website, testing my friends in college against a 
+trained CNN to tell them if they looked more like Brad Pitt or Elon Musk. 
 
 ### Outside of Work
 
-I'm an avid ceramicist (Brooklyn boy! I know.) I've made bowls, mugs, and even a lamp. I recently finished a watercoloring class, and next I want to try woodworking. It's a dream of mine to build a sofa.
+I'm an avid ceramicist (Brooklyn boy! I know.) I've made bowls, mugs, and even a lamp. I recently finished a watercoloring class, and next I want to try woodworking. 
+It's a dream of mine to build a sofa. I have a lot of admiration for Herman Miller & Knoll. When I "make it", my home will reflect that. 
+
 
 ### Software Projects
 
-I graduated as a math major with an casual interest in software engineering. After 4 years of working-for-work, I'm trying to pique my interest again.
-
 ### September Project
 
-I'm building [_Drawniture_](https://drawniture.vercel.app/), **a website where you can draw your ideal furniture piece and it'll return similarities to you** (WIP). There's a box for specifying style, and some colors. This is also my first serious exploration of Claude Code (damn, it's good).
+I'm building [_Drawniture_](https://drawniture.vercel.app/), **a website where you can draw your ideal furniture piece and it'll return similarities to you** (WIP). 
+There's a box for specifying style, and some colors. This was my first serious experimentation with Claude Code, too. 
 
 ### October Project
 

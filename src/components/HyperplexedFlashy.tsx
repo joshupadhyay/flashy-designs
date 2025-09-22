@@ -1,8 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // thank you https://www.youtube.com/watch?v=dhfQnmGXSwU&list=PLD9xos4mnoHSIDnJjGmhRrxRmHGS8nF91&index=2
 // the most calming effect I've ever seen
 export function HyperPlexed() {
+  const navigate = useNavigate();
+
   // sequential phases for smooth transitions
   const possiblePhases = useMemo(() => {
     const possiblePhases = [
@@ -55,7 +58,7 @@ export function HyperPlexed() {
 
   // Click handler for navigation
   const handleShapeClick = () => {
-    window.location.href = '/about';
+    navigate('/about');
   };
 
   return (
