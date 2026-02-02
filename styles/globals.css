@@ -4,7 +4,24 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Doodle theme variables */
 :root {
+  /* Doodle palette */
+  --bg-cream: #FEFCF3;
+  --bg-cream-dark: #F5F0E6;
+  --ink-black: #1A1A1A;
+  --ink-soft: #4A4A4A;
+  --accent-coral: #FFB5A7;
+  --accent-mustard: #E9C46A;
+  --accent-sage: #95B8A4;
+  --accent-terracotta: #D4A276;
+  --sun-yellow: #FFF9DB;
+
+  /* Typography */
+  --font-handwritten: 'Caveat', cursive;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* Existing shadcn variables */
   --background: hsl(0 0% 100%);
   --foreground: hsl(240 10% 3.9%);
   --card: hsl(0 0% 100%);
@@ -41,6 +58,8 @@
 }
 
 .dark {
+  --bg-cream: #1a1a1a;
+  --ink-black: #f8f8f8;
   --background: hsl(240 10% 3.9%);
   --foreground: hsl(0 0% 98%);
   --card: hsl(240 10% 3.9%);
@@ -141,4 +160,93 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Doodle theme animations */
+@keyframes wobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes tooltipIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sunRotate {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Doodle utility classes */
+.animate-wobble {
+  animation: wobble 0.5s ease-in-out;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.6s ease-out forwards;
+}
+
+.animate-pop-in {
+  animation: popIn 0.4s ease-out forwards;
+}
+
+.animate-tooltip-in {
+  animation: tooltipIn 0.2s ease-out forwards;
+}
+
+.animate-sun-rotate {
+  animation: sunRotate 0.8s ease-out forwards;
+}
+
+.font-handwritten {
+  font-family: var(--font-handwritten);
+}
+
+.font-body {
+  font-family: var(--font-body);
 }
