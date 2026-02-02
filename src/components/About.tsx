@@ -65,7 +65,7 @@ export function About() {
 
 const markdwn = `
 
-I grew up in Bangkok, Thailandm and now call NYC my home. I enjoy software and working from home, but I find myself missing an office and a charged work environment. 
+I grew up in Bangkok, Thailand and now call NYC my home. I enjoy software and working from home, but I find myself missing an office and a charged work environment. 
 
 I'm drawn to software as a tool of enormous leverage, and as a way to realize insane ideas. I got my start making a celebrity lookalike website, testing my friends in college against a 
 trained CNN to tell them if they looked more like Brad Pitt or Elon Musk. 
