@@ -129,6 +129,7 @@ const result = await Bun.build({
   minify: true,
   target: "browser",
   sourcemap: "linked",
+  publicPath: "/", // Use absolute paths for SPA routing compatibility
   naming: {
     // Force unique naming with hash to prevent conflicts for chunks and assets
     chunk: "chunks/[name]-[hash].[ext]",
