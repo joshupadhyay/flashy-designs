@@ -7,8 +7,12 @@ import { IdeaSprite } from "./sprites/IdeaSprite";
 import { Tree } from "./decorations/Tree";
 import { Grass } from "./decorations/Grass";
 import { Flower } from "./decorations/Flower";
+import { Lamppost } from "./decorations/Lamppost";
+import { useJoshTime } from "../../hooks/useJoshTime";
 
 export function GroundScene() {
+  const { isNight } = useJoshTime();
+
   return (
     <div className="relative w-full max-w-4xl h-[200px] mt-8 overflow-visible">
       {/* Ground line */}
@@ -17,6 +21,16 @@ export function GroundScene() {
       <Tree
         className="absolute bottom-[10px]"
         style={{ left: "2%", animationDelay: "0.3s" }}
+      />
+      {/* Lamppost next to tree - glows at night */}
+      <Lamppost
+        className="absolute bottom-[10px] animate-pop-in opacity-0"
+        style={{
+          left: "8%",
+          animationDelay: "0.35s",
+          animationFillMode: "forwards",
+        }}
+        isOn={isNight}
       />
       {/* Grass tufts scattered */}
       <Grass
